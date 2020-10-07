@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+
+exec \
+	s6-setuidgid abc /usr/sbin/squeezeboxserver \
+        --prefsdir /config/prefs --cachedir /config/cache \
+        --logdir /config/logs \
+        --pidfile /logitechmediaserver-pidfolder/squeezeboxserver.pid

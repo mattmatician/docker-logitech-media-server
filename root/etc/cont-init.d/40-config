@@ -1,0 +1,20 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+        /config/prefs \
+        /config/cache \
+        /config/logs \
+	/logitechmediaserver-pidfolder
+
+# configure defaults copy of conf
+sed -i \
+	-e s#/var/log/squeezeboxserver/scanner.log#/config/logs/scanner.log#g \
+	-e s#/var/log/squeezeboxserver/server.log#/config/logs/server.log#g \
+	 /etc/logrotate.d/logitechmediaserver
+
+# permissions
+chown -R abc:abc \
+	/config \
+	/var/lib/squeezeboxserver \
+	/logitechmediaserver-pidfolder
